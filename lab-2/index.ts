@@ -1,7 +1,10 @@
+type OrderStatus = 'new' | 'paid';
+type OrderId = number;
+
 interface Order {
-    orderId: number;
+    orderId: OrderId;
     total: number;
-    status: 'new' | 'paid';
+    status: OrderStatus;
 }
 
 function payOrder(order: Order): Order {
