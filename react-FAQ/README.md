@@ -3,6 +3,7 @@
 Відкрийте термінал та виконайте команду:
 
 ```bash
+1. Клонування репозиторію
 git clone [https://github.com/AlexandraKurylo/React-labs.git](https://github.com/AlexandraKurylo/React-labs.git)
 2. Перехід до директорії проекту
 cd React-labs/react-FAQ
