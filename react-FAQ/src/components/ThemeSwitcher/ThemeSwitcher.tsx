@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
-
 import MoonIcon from "../../assets/icon-moon.svg?react";
 import SunIcon from "../../assets/icon-sun.svg?react";
-
 import cls from "./ThemeSwitcher.module.css";
 
 export const ThemeSwitcher = () => {
-  const [isDark, setDark] = useState(false);
+  const [isDark, setDark] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme === "dark";
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+
   const themeText = isDark ? "Light" : "Dark";
   const ThemeIcon = isDark ? SunIcon : MoonIcon;
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", isDark ? "dark" : "light");
+    const theme = isDark ? "dark" : "light";
+    document.body.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [isDark]);
 
   return (

@@ -54,6 +54,7 @@ body[data-theme='dark'] {
   --green-color: #219679;
 }
 
+
 @media (prefers-color-scheme: light) {
   :root {
     --main-bg-color: #fff;
@@ -63,6 +64,21 @@ body[data-theme='dark'] {
     --btn-text-color: #fff;
 
     --card-bg-color: #ebedf0;
+
+    --green-color: #219679;
+  }
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-bg-color: #23272F;
+    --text-color: #fff;
+
+    --btn-bg-color: #16444f;
+    --btn-text-color: #57C4DC;
+
+    --card-bg-color: #343a46;
 
     --green-color: #219679;
   }
