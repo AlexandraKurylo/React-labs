@@ -13,7 +13,7 @@ export const TaskCard: FC<TaskCardProps> = ({ title, description, link }) => (
     <h3 className={cls.title}>{title}</h3>
     <p className={cls.desc}>{description}</p>
     <div className={cls.cardButtonWrapper}>
-      <Button to={link}>Відкрити завдання</Button>
+      <Button to={link}>Open task</Button>
     </div>
   </div>
 );

@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { UserProfileForm } from "../../components/UserProfileForm/UserProfileForm";
-import cls from "./UserProfileFormPage.module.css";
+import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
+import cls from "./RegisterFormPage.module.css";
+import type { FC } from "react";
 
-export const UserProfileFormPage = () => {
+export const RegisterFormPage: FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -11,7 +12,7 @@ export const UserProfileFormPage = () => {
         ← Back
       </button>
       <div className={cls.content}>
-        <UserProfileForm />
+        <RegisterForm />
       </div>
     </div>
   );

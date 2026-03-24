@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { MainLayout } from "../components/MainLayout/MainLayout";
-import { HomePage } from "../pages/HomePage/HomePage";
-import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
-import { UserProfileFormPage } from "../pages/UserProfileFormPage";
-import { FirstTaskPage } from "../pages/FirstTaskPage";
+import { MainLayout } from "./components/MainLayout";
+import { HomePage } from "./pages/HomePage";
+import { UserProfileFormPage } from "./pages/UserProfileFormPage";
+import { RegisterFormPage } from "./pages/RegisterFormPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +19,8 @@ const router = createBrowserRouter([
         element: <UserProfileFormPage />,
       },
       {
-        path: "task-1",
-        element: <FirstTaskPage />,
+        path: "register",
+        element: <RegisterFormPage />,
       },
       {
         path: "*",
@@ -30,6 +30,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-export const AppRouter = () => {
+function App() {
   return <RouterProvider router={router} />;
-};
+}
+
+export default App;

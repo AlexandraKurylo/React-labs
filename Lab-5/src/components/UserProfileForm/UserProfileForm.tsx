@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import styles from "./UserProfileForm.module.css";
-import { profileSchema, type ProfileFormData } from "./schema";
 import type { FC } from "react";
+import { Button } from "../Button";
+import { profileSchema, type ProfileFormData } from "./profileSchema";
 
 export const UserProfileForm: FC = () => {
   const {
@@ -80,9 +81,9 @@ export const UserProfileForm: FC = () => {
         )}
       </div>
 
-      <button type="submit" disabled={!isValid || isSubmitting} className={styles.submitButton}>
+      <Button type="submit" disabled={!isValid || isSubmitting} className={styles.submitButton}>
         {isSubmitting ? "Saving..." : "Submit Changes"}
-      </button>
+      </Button>
     </form>
   );
 };

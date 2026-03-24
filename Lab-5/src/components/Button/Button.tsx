@@ -8,18 +8,19 @@ interface ButtonProps {
   onClick?: () => void;
   type?: "button" | "submit";
   disabled?: boolean;
+  className?: string;
 }
 
-export const Button: FC<ButtonProps> = ({ children, to, onClick, type = "button", disabled }) => {
+export const Button: FC<ButtonProps> = ({ children, to, onClick, type = "button", disabled, className }) => {
   if (to) {
     return (
-      <Link to={to} className={cls.btn}>
+      <Link to={to} className={`${cls.btn} ${className || ""}`}>
         {children}
       </Link>
     );
   }
   return (
-    <button className={cls.btn} onClick={onClick} type={type} disabled={disabled}>
+    <button className={`${cls.btn} ${className || ""}`} onClick={onClick} type={type} disabled={disabled}>
       {children}
     </button>
   );

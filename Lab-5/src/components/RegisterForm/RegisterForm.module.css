@@ -28,7 +28,7 @@
   color: var(--gray-100);
 }
 
-.input, .textarea {
+.input {
   width: 100%;
   padding: 0.85rem; 
   background-color: var(--main-bg-color);
@@ -40,15 +40,10 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.input:focus, .textarea:focus {
+.input:focus {
   outline: none;
   border-color: var(--btn-text-color);
   box-shadow: 0 0 0 3px rgba(87, 196, 220, 0.1);
-}
-
-.textarea {
-  min-height: 120px;
-  resize: vertical;
 }
 
 .inputError {
@@ -80,7 +75,7 @@
 
 .submitButton:hover:not(:disabled) {
   background-color: var(--btn-text-color);
-  color: var(--btn-bg-color);
+  color: var(--main-bg-color);
 }
 
 .submitButton:active:not(:disabled) {
