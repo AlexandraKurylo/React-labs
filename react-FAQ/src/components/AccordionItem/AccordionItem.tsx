@@ -8,7 +8,7 @@ export const AccordionItem: FC<IAccordionItemProps> = ({ id, question, answer, i
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/question/${id}`);
+    navigate(`question/${id}`);
   };
 
   return (
