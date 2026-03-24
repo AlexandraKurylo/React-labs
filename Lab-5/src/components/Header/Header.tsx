@@ -11,7 +11,7 @@ export const Header = () => {
     <header className={cls.header}>
       <p onClick={() => navigate("/")}>
         <img src={ReactLogo} alt="react logo" />
-        <span>ReactBase</span>
+        <span>FormValidation</span>
       </p>
       <div className={cls.btnWrapper}>
         <Button to="/profile">Personal task</Button>
