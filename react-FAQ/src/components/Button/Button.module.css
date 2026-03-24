@@ -1,5 +1,6 @@
 .viewMoreBtn {
   display: inline-block;
+  text-decoration: none;
   border: none;
   cursor: pointer;
   padding: 0.6rem 1.2rem;
