@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import ReactLogo from "../../assets/react.svg";
 import cls from "./Header.module.css";
 import { ThemeSwitcher } from "../ThemeSwitcher";
+import { Button } from "../Button";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -12,6 +13,10 @@ export const Header = () => {
         <img src={ReactLogo} alt="react logo" />
         <span>ReactBase</span>
       </p>
+      <div className={cls.btnWrapper}>
+        <Button to="/profile">Personal task</Button>
+        <Button to="/register">Task 1</Button>
+      </div>
       <ThemeSwitcher />
     </header>
   );

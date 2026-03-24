@@ -4,7 +4,7 @@
     background-color: var(--main-bg-color);
     padding: 0.625rem 1.875rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 3.125rem;
     box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, .2);
@@ -20,10 +20,15 @@
     }
 }
 
+.btnWrapper {
+    display: flex;
+    gap: 1.875rem;
+}
 
-@media (max-width: 30em) {
+
+@media (max-width: 38.75em) {
     .header {
-        padding: 0.625rem 0.9375rem;
+        padding: 0.9375rem 0.9375rem;
         flex-direction: column; 
         height: auto;
         gap: 0.9375rem;
