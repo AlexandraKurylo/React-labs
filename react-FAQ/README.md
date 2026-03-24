@@ -28,7 +28,7 @@
 
 ### 📂 Структура проєкту
 
-- src/components — перевикористовувані UI-компоненти (MainLayout, Input, AccordionItem, Button, Header, ThemeSwitcher).
+- src/components — перевикористовувані UI-компоненти (MainLayout, Input, AccordionItem, QuestionDetail, Button, Header, ThemeSwitcher).
 
 - src/pages — основні сторінки додатку (Home, QuestionPage, NotFoundPage).
 
