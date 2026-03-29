@@ -18,7 +18,7 @@ body[data-theme='dark'] {
     color: var(--switcher-color);
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
+    letter-spacing: 0.1563rem;
   }
 
   &:hover {

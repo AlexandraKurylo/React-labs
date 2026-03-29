@@ -1,10 +1,10 @@
 .formCard {
   background-color: var(--card-bg-color);
   padding: 2.5rem; 
-  border-radius: 16px; 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 1rem; 
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 700px;
+  max-width: 43.75rem;
   margin: 0 auto; 
   border: 1px solid var(--gray-300);
 }
@@ -33,7 +33,7 @@
   padding: 0.85rem; 
   background-color: var(--main-bg-color);
   border: 1px solid var(--gray-300);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-size: 1rem;
   color: var(--text-color);
   box-sizing: border-box;
@@ -43,11 +43,11 @@
 .input:focus, .textarea:focus {
   outline: none;
   border-color: var(--btn-text-color);
-  box-shadow: 0 0 0 3px rgba(87, 196, 220, 0.1);
+  box-shadow: 0 0 0 0.1875rem rgba(87, 196, 220, 0.1);
 }
 
 .textarea {
-  min-height: 120px;
+  min-height: 7.5rem;
   resize: vertical;
 }
 
@@ -70,7 +70,7 @@
   background-color: var(--btn-bg-color);
   color: var(--btn-text-color);
   border: 1px solid var(--btn-text-color);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-weight: 600;
   font-size: 1.1rem;
   cursor: pointer;
