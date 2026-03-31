@@ -1,5 +1,7 @@
 ## Advanced Validation with React Hook Form & Zod
 
+![Project Preview](./src/assets/preview.png)
+
 ### Project Features
 
 React Form Management: Robust form handling using the React Hook Form library for optimal performance and minimal re-renders.
@@ -65,19 +67,13 @@ Open a terminal and run the command:
 git clone [https://github.com/AlexandraKurylo/react-app-course](https://github.com/AlexandraKurylo/react-app-course)
 ```
 
-#### 3. Installing dependencies
+#### 2. Installing dependencies
 
 ```bash
    npm install
 ```
 
-#### 4. Starting the database (Terminal 1)
-
-```bash
-   npm run server
-```
-
-#### 5. Launching the application (Terminal 2)
+#### 3. Launching the application
 
 ```bash
    npm run dev
