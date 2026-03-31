@@ -12,18 +12,17 @@ export const RegisterForm: FC = () => {
     formState: { errors, isValid, isSubmitting },
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
-    mode: "onBlur",
-    reValidateMode: "onChange",
+    mode: "onChange",
   });
 
   const onSubmit = (data: RegisterFormData) => {
-    const cleanData = {
+    const formattedData = {
       ...data,
       username: data.username.trim().toLowerCase(),
       email: data.email.trim().toLowerCase(),
     };
 
-    console.log("Final Registration Data:", cleanData);
+    console.log("Form Data Prepared:", formattedData);
     alert("Registration successful!");
   };
 
@@ -41,7 +40,6 @@ export const RegisterForm: FC = () => {
           {...register("username")}
           aria-invalid={errors.username ? "true" : "false"}
           className={`${styles.input} ${errors.username ? styles.inputError : ""}`}
-          placeholder="Enter username"
         />
         {errors.username && (
           <span role="alert" className={styles.errorMessage}>
@@ -61,7 +59,6 @@ export const RegisterForm: FC = () => {
           {...register("email")}
           aria-invalid={errors.email ? "true" : "false"}
           className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
-          placeholder="example@gmail.com"
         />
         {errors.email && (
           <span role="alert" className={styles.errorMessage}>
@@ -97,10 +94,9 @@ export const RegisterForm: FC = () => {
         <input
           id="password"
           type="password"
-          {...register("password")}
+          {...register("password", { deps: ["confirmPassword"] })}
           aria-invalid={errors.password ? "true" : "false"}
           className={`${styles.input} ${errors.password ? styles.inputError : ""}`}
-          placeholder="Min 6 characters"
         />
         {errors.password && (
           <span role="alert" className={styles.errorMessage}>
@@ -120,7 +116,6 @@ export const RegisterForm: FC = () => {
           {...register("confirmPassword")}
           aria-invalid={errors.confirmPassword ? "true" : "false"}
           className={`${styles.input} ${errors.confirmPassword ? styles.inputError : ""}`}
-          placeholder="Repeat your password"
         />
         {errors.confirmPassword && (
           <span role="alert" className={styles.errorMessage}>
