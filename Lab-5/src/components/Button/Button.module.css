@@ -23,3 +23,7 @@
   cursor: not-allowed;
 }
 
+.btn.active {
+  background: linear-gradient(90deg,rgba(69, 65, 87, 1) 0%, rgba(36, 36, 82, 1) 35%, rgba(96, 96, 156, 1) 100%);
+}
+

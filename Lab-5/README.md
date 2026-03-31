@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+## Advanced Validation with React Hook Form & Zod
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Project Features
 
-Currently, two official plugins are available:
+React Form Management: Robust form handling using the React Hook Form library for optimal performance and minimal re-renders.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Schema-based Validation: Comprehensive client-side data validation powered by Zod.
 
-## React Compiler
+Web Accessibility (A11y): Implementation of accessible web forms, ensuring screen reader compatibility and proper focus management.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Key Implementations
 
-## Expanding the ESLint configuration
+#### 1. User Profile Form (Individual Task)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- A personalized profile management form featuring:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Nickname: Validated to ensure no spaces are allowed.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Biography: Limited to a maximum of 100 words.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Website: URL validation with automated protocol checks.
+
+- Validation: Powered by a unified Zod schema and React Hook Form.
+
+#### 2. User Registration Form
+
+- A complete registration flow including the following fields:
+
+- Full Name, Email, and Age.
+
+- Password & Confirm Password: Includes cross-field validation to ensure passwords match.
+
+- A11y & Validation: Fully accessible inputs with real-time error feedback for an enhanced user experience. Folder Structure
+
+### Folder Structure
+
+```text
+src/
+├── assets/          # Icons, images, and static media
+├── components/      # Modular UI components
+│   ├── Button/
+│   ├── Header/
+│   ├── MainLayout/
+│   ├── RegisterForm/
+│   ├── TaskCard/
+│   ├── ThemeSwitcher/
+│   └── UserProfileForm/
+├── pages/           # Page-level components
+│   ├── HomePage/
+│   ├── NotFoundPage/
+│   ├── RegisterFormPage/
+│   └── UserProfileFormPage/
+├── App.tsx          # Root application component
+├── index.css        # Global styles
+└── main.tsx         # Application entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### How to run a project locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Open a terminal and run the command:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+#### 1. Cloning a repository
+
+```bash
+git clone [https://github.com/AlexandraKurylo/react-app-course](https://github.com/AlexandraKurylo/react-app-course)
+```
+
+#### 3. Installing dependencies
+
+```bash
+   npm install
+```
+
+#### 4. Starting the database (Terminal 1)
+
+```bash
+   npm run server
+```
+
+#### 5. Launching the application (Terminal 2)
+
+```bash
+   npm run dev
 ```

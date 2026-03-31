@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import cls from "./Button.module.css";
 
 interface ButtonProps {
@@ -14,9 +14,9 @@ interface ButtonProps {
 export const Button: FC<ButtonProps> = ({ children, to, onClick, type = "button", disabled, className }) => {
   if (to) {
     return (
-      <Link to={to} className={`${cls.btn} ${className || ""}`}>
+      <NavLink to={to} className={({ isActive }) => `${cls.btn} ${className || ""} ${isActive ? cls.active : ""}`}>
         {children}
-      </Link>
+      </NavLink>
     );
   }
   return (
