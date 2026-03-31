@@ -16,6 +16,7 @@ export const UserProfileForm: FC = () => {
   });
 
   const onSubmit = (data: ProfileFormData) => {
+    console.log(data);
     alert("Profile saved successfully!");
   };
 

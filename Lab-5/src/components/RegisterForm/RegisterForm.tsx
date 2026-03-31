@@ -16,6 +16,7 @@ export const RegisterForm: FC = () => {
   });
 
   const onSubmit = (data: RegisterFormData) => {
+    console.log(data);
     alert("Registration successful!");
   };
 
