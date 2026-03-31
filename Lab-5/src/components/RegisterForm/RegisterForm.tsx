@@ -15,8 +15,7 @@ export const RegisterForm: FC = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = (data: RegisterFormData) => {
-    console.log(data);
+  const onSubmit = (_data: RegisterFormData) => {
     alert("Registration successful!");
   };
 
