@@ -13,9 +13,17 @@ export const RegisterForm: FC = () => {
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
     mode: "onBlur",
+    reValidateMode: "onChange",
   });
 
-  const onSubmit = (_data: RegisterFormData) => {
+  const onSubmit = (data: RegisterFormData) => {
+    const cleanData = {
+      ...data,
+      username: data.username.trim().toLowerCase(),
+      email: data.email.trim().toLowerCase(),
+    };
+
+    console.log("Final Registration Data:", cleanData);
     alert("Registration successful!");
   };
 
@@ -33,6 +41,7 @@ export const RegisterForm: FC = () => {
           {...register("username")}
           aria-invalid={errors.username ? "true" : "false"}
           className={`${styles.input} ${errors.username ? styles.inputError : ""}`}
+          placeholder="Enter username"
         />
         {errors.username && (
           <span role="alert" className={styles.errorMessage}>
@@ -52,6 +61,7 @@ export const RegisterForm: FC = () => {
           {...register("email")}
           aria-invalid={errors.email ? "true" : "false"}
           className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
+          placeholder="example@gmail.com"
         />
         {errors.email && (
           <span role="alert" className={styles.errorMessage}>
@@ -68,7 +78,6 @@ export const RegisterForm: FC = () => {
         <input
           id="age"
           type="number"
-          min="1"
           {...register("age", { valueAsNumber: true })}
           aria-invalid={errors.age ? "true" : "false"}
           className={`${styles.input} ${errors.age ? styles.inputError : ""}`}
@@ -88,9 +97,10 @@ export const RegisterForm: FC = () => {
         <input
           id="password"
           type="password"
-          {...register("password", { deps: ["confirmPassword"] })}
+          {...register("password")}
           aria-invalid={errors.password ? "true" : "false"}
           className={`${styles.input} ${errors.password ? styles.inputError : ""}`}
+          placeholder="Min 6 characters"
         />
         {errors.password && (
           <span role="alert" className={styles.errorMessage}>
@@ -110,6 +120,7 @@ export const RegisterForm: FC = () => {
           {...register("confirmPassword")}
           aria-invalid={errors.confirmPassword ? "true" : "false"}
           className={`${styles.input} ${errors.confirmPassword ? styles.inputError : ""}`}
+          placeholder="Repeat your password"
         />
         {errors.confirmPassword && (
           <span role="alert" className={styles.errorMessage}>

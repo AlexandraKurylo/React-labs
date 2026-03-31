@@ -12,10 +12,18 @@ export const UserProfileForm: FC = () => {
     formState: { errors, isValid, isSubmitting },
   } = useForm<ProfileFormData>({
     resolver: zodResolver(profileSchema),
-    mode: "onChange",
+    mode: "onBlur",
+    reValidateMode: "onChange",
   });
 
-  const onSubmit = (_data: ProfileFormData) => {
+  const onSubmit = (data: ProfileFormData) => {
+    const formattedData = {
+      ...data,
+      nickname: data.nickname.toLowerCase().trim(),
+      website: /^https?:\/\//i.test(data.website) ? data.website : `https://${data.website}`,
+    };
+
+    console.log("Form submitted with cleaned data:", formattedData);
     alert("Profile saved successfully!");
   };
 
@@ -30,10 +38,12 @@ export const UserProfileForm: FC = () => {
         </label>
         <input
           id="nickname"
+          type="text"
           {...register("nickname")}
           aria-invalid={errors.nickname ? "true" : "false"}
           aria-describedby={errors.nickname ? "nickname-error" : undefined}
           className={`${styles.input} ${errors.nickname ? styles.inputError : ""}`}
+          placeholder="e.g. alex_dev"
         />
         {errors.nickname && (
           <span id="nickname-error" role="alert" className={styles.errorMessage}>
@@ -53,6 +63,7 @@ export const UserProfileForm: FC = () => {
           aria-invalid={errors.bio ? "true" : "false"}
           aria-describedby={errors.bio ? "bio-error" : undefined}
           className={`${styles.textarea} ${errors.bio ? styles.inputError : ""}`}
+          placeholder="Tell us about yourself..."
         />
         {errors.bio && (
           <span id="bio-error" role="alert" className={styles.errorMessage}>
@@ -68,11 +79,12 @@ export const UserProfileForm: FC = () => {
         </label>
         <input
           id="website"
-          type="url"
+          type="text"
           {...register("website")}
           aria-invalid={errors.website ? "true" : "false"}
           aria-describedby={errors.website ? "website-error" : undefined}
           className={`${styles.input} ${errors.website ? styles.inputError : ""}`}
+          placeholder="example.com"
         />
         {errors.website && (
           <span id="website-error" role="alert" className={styles.errorMessage}>

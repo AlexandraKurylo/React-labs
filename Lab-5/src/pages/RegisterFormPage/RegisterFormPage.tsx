@@ -5,7 +5,6 @@ import type { FC } from "react";
 
 export const RegisterFormPage: FC = () => {
   const navigate = useNavigate();
-
   return (
     <div className={cls.container}>
       <button className={cls.backBtn} onClick={() => navigate(-1)}>
