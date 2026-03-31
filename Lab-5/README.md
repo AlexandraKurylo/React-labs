@@ -2,7 +2,7 @@
 
 ![Project Preview](./src/assets/preview.png)
 
-### Project Features
+### 📝 Project Features
 
 React Form Management: Robust form handling using the React Hook Form library for optimal performance and minimal re-renders.
 
@@ -10,7 +10,21 @@ Schema-based Validation: Comprehensive client-side data validation powered by Zo
 
 Web Accessibility (A11y): Implementation of accessible web forms, ensuring screen reader compatibility and proper focus management.
 
-### Key Implementations
+### 🛠 Tech Stack
+
+- Frontend: React
+
+- Language: TypeScript
+
+- Routing: React Router v6.4
+
+- Styling: CSS Modules (for component-level style isolation)
+
+- Forms: React Hook Form (efficient form state management)
+
+- Validation: Zod (schema-based validation and type inference)
+
+### 🗝️ Key Implementations
 
 #### 1. User Profile Form (Individual Task)
 
@@ -34,7 +48,7 @@ Web Accessibility (A11y): Implementation of accessible web forms, ensuring scree
 
 - A11y & Validation: Fully accessible inputs with real-time error feedback for an enhanced user experience. Folder Structure
 
-### Folder Structure
+### 📂 Folder Structure
 
 ```text
 src/
@@ -64,7 +78,13 @@ Open a terminal and run the command:
 #### 1. Cloning a repository
 
 ```bash
-git clone [https://github.com/AlexandraKurylo/react-app-course](https://github.com/AlexandraKurylo/react-app-course)
+git clone [https://github.com/AlexandraKurylo/React-labs.git](https://github.com/AlexandraKurylo/React-labs.git)
+```
+
+### 2. Go to the project directory
+
+```bash
+   cd React-labs/Lab-5
 ```
 
 #### 2. Installing dependencies
