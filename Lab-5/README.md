@@ -2,7 +2,7 @@
 
 ![Project Preview](./src/assets/preview.png)
 
-🔗 [Live Demo](advanced-validation.vercel.app)
+🔗 [Live Demo](https://advanced-validation.vercel.app/)
 
 ### 📝 Project Features
 
