@@ -4,11 +4,11 @@
 
 ### 📝 Project Features
 
-React Form Management: Robust form handling using the React Hook Form library for optimal performance and minimal re-renders.
+- React Form Management: Robust form handling using the React Hook Form library for optimal performance and minimal re-renders.
 
-Schema-based Validation: Comprehensive client-side data validation powered by Zod.
+- Schema-based Validation: Comprehensive client-side data validation powered by Zod.
 
-Web Accessibility (A11y): Implementation of accessible web forms, ensuring screen reader compatibility and proper focus management.
+- Web Accessibility (A11y): Implementation of accessible web forms, ensuring screen reader compatibility and proper focus management.
 
 ### 🛠 Tech Stack
 
@@ -81,19 +81,19 @@ Open a terminal and run the command:
 git clone [https://github.com/AlexandraKurylo/React-labs.git](https://github.com/AlexandraKurylo/React-labs.git)
 ```
 
-### 2. Go to the project directory
+#### 2. Go to the project directory
 
 ```bash
    cd React-labs/Lab-5
 ```
 
-#### 2. Installing dependencies
+#### 3. Installing dependencies
 
 ```bash
    npm install
 ```
 
-#### 3. Launching the application
+#### 4. Launching the application
 
 ```bash
    npm run dev
