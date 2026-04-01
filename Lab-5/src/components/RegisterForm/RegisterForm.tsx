@@ -12,7 +12,8 @@ export const RegisterForm: FC = () => {
     formState: { errors, isValid, isSubmitting },
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
-    mode: "onChange",
+    mode: "onBlur",
+    reValidateMode: "onChange",
   });
 
   const onSubmit = (data: RegisterFormData) => {
