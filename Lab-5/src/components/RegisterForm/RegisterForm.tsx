@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import styles from "./RegisterForm.module.css";
 import type { FC } from "react";
@@ -9,14 +9,14 @@ export const RegisterForm: FC = () => {
   const {
     register,
     handleSubmit,
+    trigger,
     formState: { errors, isValid, isSubmitting },
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
-    mode: "onBlur",
-    reValidateMode: "onChange",
+    mode: "onChange",
   });
 
-  const onSubmit = (data: RegisterFormData) => {
+  const onSubmit: SubmitHandler<RegisterFormData> = (data) => {
     const formattedData = {
       ...data,
       username: data.username.trim().toLowerCase(),
@@ -39,14 +39,9 @@ export const RegisterForm: FC = () => {
         <input
           id="username"
           {...register("username")}
-          aria-invalid={errors.username ? "true" : "false"}
           className={`${styles.input} ${errors.username ? styles.inputError : ""}`}
         />
-        {errors.username && (
-          <span role="alert" className={styles.errorMessage}>
-            {errors.username.message}
-          </span>
-        )}
+        {errors.username && <span className={styles.errorMessage}>{errors.username.message}</span>}
       </div>
 
       {/* EMAIL */}
@@ -58,14 +53,9 @@ export const RegisterForm: FC = () => {
           id="email"
           type="email"
           {...register("email")}
-          aria-invalid={errors.email ? "true" : "false"}
           className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
         />
-        {errors.email && (
-          <span role="alert" className={styles.errorMessage}>
-            {errors.email.message}
-          </span>
-        )}
+        {errors.email && <span className={styles.errorMessage}>{errors.email.message}</span>}
       </div>
 
       {/* AGE */}
@@ -77,14 +67,9 @@ export const RegisterForm: FC = () => {
           id="age"
           type="number"
           {...register("age", { valueAsNumber: true })}
-          aria-invalid={errors.age ? "true" : "false"}
           className={`${styles.input} ${errors.age ? styles.inputError : ""}`}
         />
-        {errors.age && (
-          <span role="alert" className={styles.errorMessage}>
-            {errors.age.message}
-          </span>
-        )}
+        {errors.age && <span className={styles.errorMessage}>{errors.age.message}</span>}
       </div>
 
       {/* PASSWORD */}
@@ -95,15 +80,12 @@ export const RegisterForm: FC = () => {
         <input
           id="password"
           type="password"
-          {...register("password", { deps: ["confirmPassword"] })}
-          aria-invalid={errors.password ? "true" : "false"}
+          {...register("password", {
+            onChange: () => trigger("confirmPassword"),
+          })}
           className={`${styles.input} ${errors.password ? styles.inputError : ""}`}
         />
-        {errors.password && (
-          <span role="alert" className={styles.errorMessage}>
-            {errors.password.message}
-          </span>
-        )}
+        {errors.password && <span className={styles.errorMessage}>{errors.password.message}</span>}
       </div>
 
       {/* CONFIRM PASSWORD */}
@@ -115,14 +97,9 @@ export const RegisterForm: FC = () => {
           id="confirmPassword"
           type="password"
           {...register("confirmPassword")}
-          aria-invalid={errors.confirmPassword ? "true" : "false"}
           className={`${styles.input} ${errors.confirmPassword ? styles.inputError : ""}`}
         />
-        {errors.confirmPassword && (
-          <span role="alert" className={styles.errorMessage}>
-            {errors.confirmPassword.message}
-          </span>
-        )}
+        {errors.confirmPassword && <span className={styles.errorMessage}>{errors.confirmPassword.message}</span>}
       </div>
 
       <Button type="submit" disabled={!isValid || isSubmitting} className={styles.submitButton}>
