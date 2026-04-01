@@ -8,12 +8,12 @@ export const HomePage = () => {
       <div className={cls.grid}>
         <TaskCard
           title="Personal Task"
-          description="Форма профіля користувача з валідацією React Hook Form та Zod. Поля: Нікнейм (без пробілів), Біографія (макс. 100 слів), Веб-сайт (url)."
+          description="User Profile Form with React Hook Form and Zod validation. Fields: Nickname (no spaces allowed), Bio (maximum 100 words), and Website (URL)."
           link="/profile"
         />
         <TaskCard
           title="Task 1"
-          description="Форма реєстрації користувача з полями: Ім'я, Email, Вік, Пароль, Підтвердження пароля. Реалізувати валідацію та доступність."
+          description="User Registration Form featuring fields: Username, Email, Age, Password, and Confirm Password. Implement full validation and accessibility (Aria-attributes)."
           link="/register"
         />
       </div>
