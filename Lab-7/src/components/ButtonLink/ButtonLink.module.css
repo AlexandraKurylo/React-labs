@@ -1,0 +1,24 @@
+.button {
+  margin-top: auto;
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: filter 0.2s ease, transform 0.1s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  filter: brightness(1.2);
+}
+
+.button:active {
+  transform: scale(0.98);
+}

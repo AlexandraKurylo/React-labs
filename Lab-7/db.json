@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "⚛️ React Learning Flashcards",
+      "previewUrl": "react-cards-project.png",
+      "description": "An interactive, feature-rich platform designed for mastering React.js core concepts through a structured flashcard system. This Single Page Application (SPA) serves as both a study tool and a demonstration of modern frontend architecture.",
+      "stack": ["TypeScript", "React 18 (Vite, TSX)", "React Router Dom (v6.4+)", "CSS Modules"],
+      "githubUrl": "https://github.com/AlexandraKurylo/react-app-course",
+      "liveDemoUrl": " https://react-cards-app-qtcz.onrender.com"
+    },
+    {
+      "id": "2",
+      "title": "📝Responsive Semantic Static Layout 'Furniture'",
+      "previewUrl": "furniture-project.png",
+      "description": "An interactive, feature-rich platform designed for mastering React.js core concepts through a structured flashcard system. This Single Page Application (SPA) serves as both a study tool and a demonstration of modern frontend architecture.",
+      "stack": ["HTML5", "CSS3", "SCSS", "JavaScript"],
+      "githubUrl": "https://github.com/AlexandraKurylo/furniture",
+      "liveDemoUrl": "https://alexandrakurylo.github.io/furniture/"
+    }
+  ]
+}
