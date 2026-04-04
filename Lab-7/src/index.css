@@ -9,6 +9,7 @@
   --card-bg-color: #343a46;
 
   --green-color: #219679;
+  --blue-color: #0091ff;
 
   --gray-100: #697C9A;
   --gray-300: #2B3442;
@@ -34,6 +35,7 @@
 
 a {
   color: inhereit;
+  text-decoration: none;
 }
 
 

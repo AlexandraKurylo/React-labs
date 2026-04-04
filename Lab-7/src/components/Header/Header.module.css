@@ -4,7 +4,7 @@
     background-color: var(--main-bg-color);
     padding: 0.625rem 1.875rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 3.125rem;
     box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, .2);
@@ -20,8 +20,25 @@
     }
 }
 
+.navLinksWrapper {
+    display: flex;
+    gap: 1.875rem;
+}
 
-@media (max-width: 30em) {
+.navLinksWrapper a {
+    color: var(--text-color);
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+.navLinksWrapper a.active,
+.navLinksWrapper a:hover
+ {
+    color: var(--blue-color);
+    border-bottom: 1px solid var(--blue-color);
+}
+
+@media (max-width: 40.625em) {
     .header {
         padding: 0.625rem 0.9375rem;
         flex-direction: column; 

@@ -14,9 +14,10 @@ export const ProjectCard: FC<ProjectCardProps> = ({ id, title, previewUrl, stack
 
   return (
     <article className={cls.card}>
-      <div className={cls.imageWrapper}>
+      <picture className={cls.imageWrapper}>
         <img src={imagePath} alt={title} className={cls.image} />
-      </div>
+      </picture>
+      <hr />
       <div className={cls.content}>
         <h3 className={cls.title}>{title}</h3>
         <div className={cls.stack}>

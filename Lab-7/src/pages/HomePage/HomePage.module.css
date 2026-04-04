@@ -1,1 +1,83 @@
-.homePage {}
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.hero {
+    margin-bottom: 60px;
+}
+
+.name {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.role {
+    font-size: 1.5rem;
+    color: var(--green-color);
+    margin-bottom: 25px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.about {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    max-width: 700px;
+    opacity: 0.9;
+}
+
+.educationSection {
+    margin-top: 50px;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    display: inline-block;
+    border-bottom: 3px solid var(--green-color);
+}
+
+.eduList {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.eduItem {
+    white-space: pre-wrap;
+    padding-left: 20px;
+    border-left: 2px solid var(--green-color);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.loader,
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    font-weight: 700;
+}
+
+.error {
+    color: #ff4d4d;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

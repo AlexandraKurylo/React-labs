@@ -1,1 +1,91 @@
-.contactsPage {}
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--text-color);
+  border-bottom: 2px solid var(--green-color);
+  display: inline-block;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+
+  /* --- СЕКЦІЯ АНІМАЦІЇ --- */
+  opacity: 0;
+  transform: translateY(20px); /* Картка плавно піднімається знизу */
+  animation: slideInFade 0.5s ease forwards;
+  
+  /* Використовуємо змінну --index, яку ми передаємо з React */
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+.contactItem:hover {
+  transform: translateX(10px);
+  border-color: var(--green-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ключові кадри для появи */
+@keyframes slideInFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.iconBox {
+  font-size: 1.8rem;
+  color: var(--green-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.link {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--green-color);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}

@@ -1,18 +1,56 @@
 import { type FC, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import cls from "./ProjectPage.module.css";
+import type { IProject } from "../../types/global.types";
 
 export const ProjectPage: FC = () => {
-  const { id } = useParams();
-  const [project, setProject] = useState<any>(null);
+  const { id } = useParams<{ id: string }>();
+  const [project, setProject] = useState<IProject | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8801/projects/${id}`)
-      .then((res) => res.json())
-      .then((data) => setProject(data));
+    const fetchProject = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+
+        const response = await fetch(`http://localhost:8801/projects/${id}`);
+
+        if (!response.ok) {
+          throw new Error("Project not found");
+        }
+
+        const data = await response.json();
+        setProject(data);
+      } catch (err: any) {
+        setError(err.message || "Something went wrong");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (id) {
+      fetchProject();
+    }
   }, [id]);
 
-  if (!project) return <div className={cls.loader}>Loading project details...</div>;
+  if (isLoading) {
+    return <div className={cls.loader}>Loading project...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className={cls.container}>
+        <Link to="/portfolio" className={cls.backLink}>
+          ← Back
+        </Link>
+        <div className={cls.error}>{error}</div>
+      </div>
+    );
+  }
+
+  if (!project) return null;
 
   const imagePath = new URL(`../../assets/${project.previewUrl}`, import.meta.url).href;
 
@@ -24,27 +62,34 @@ export const ProjectPage: FC = () => {
 
       <article className={cls.content}>
         <h1 className={cls.title}>{project.title}</h1>
-        <img src={imagePath} alt={project.title} className={cls.mainImage} />
+
+        <div className={cls.imageWrapper}>
+          <img src={imagePath} alt={project.title} className={cls.mainImage} />
+        </div>
 
         <div className={cls.details}>
-          <h3>Project Description</h3>
-          <p>{project.description}</p>
+          <section>
+            <h3 className={cls.subtitle}>About Project</h3>
+            <p className={cls.description}>{project.description}</p>
+          </section>
 
-          <h3>Tech Stack</h3>
-          <div className={cls.tags}>
-            {project.stack.map((s: string) => (
-              <span key={s} className={cls.tag}>
-                {s}
-              </span>
-            ))}
-          </div>
+          <section>
+            <h3 className={cls.subtitle}>Technologies</h3>
+            <div className={cls.tags}>
+              {project.stack.map((tech) => (
+                <span key={tech} className={cls.tag}>
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </section>
 
           <div className={cls.actions}>
             <a href={project.liveDemoUrl} target="_blank" rel="noreferrer" className={cls.demoBtn}>
               Live Demo 🚀
             </a>
             <a href={project.githubUrl} target="_blank" rel="noreferrer" className={cls.githubBtn}>
-              GitHub Repository
+              GitHub Repo
             </a>
           </div>
         </div>
