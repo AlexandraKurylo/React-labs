@@ -12,7 +12,7 @@
   font-weight: 900;
   color: var(--text-color);
   margin-bottom: 40px;
-  border-bottom: 2px solid var(--green-color); 
+  border-bottom: 3px solid var(--green-color); 
   align-self: flex-start;
 }
 
@@ -22,7 +22,6 @@
 }
 
 .footer {
-  margin-top: 80px;
   padding: 40px 0;
   border-top: 1px solid var(--gray-300);
   text-align: center;

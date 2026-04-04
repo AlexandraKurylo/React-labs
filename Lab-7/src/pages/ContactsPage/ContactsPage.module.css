@@ -8,7 +8,7 @@
   font-size: 2.5rem;
   margin-bottom: 40px;
   color: var(--text-color);
-  border-bottom: 2px solid var(--green-color);
+  border-bottom: 3px solid var(--green-color);
   display: inline-block;
 }
 

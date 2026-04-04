@@ -1,18 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import ReactLogo from "../../assets/react.svg";
+import { Link } from "react-router-dom";
 import cls from "./Header.module.css";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { NavLink } from "react-router-dom";
+import { LuLayoutDashboard } from "react-icons/lu";
 
 export const Header = () => {
-  const navigate = useNavigate();
-
   return (
     <header className={cls.header}>
-      <p onClick={() => navigate("/")}>
-        <img src={ReactLogo} alt="react logo" />
-        <span>ReactBase</span>
-      </p>
+      <Link to="/" className={cls.logo}>
+        <LuLayoutDashboard className={cls.logoIcon} />
+        <span className={cls.logoText}>MyPortfolio</span>
+      </Link>
       <div className={cls.navLinksWrapper}>
         <NavLink className={({ isActive }) => (isActive ? `${cls.link} ${cls.active}` : cls.link)} to="/">
           Home

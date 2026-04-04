@@ -41,14 +41,14 @@ export const PortfolioPage: FC = () => {
     <section className={cls.container}>
       <h1 className={cls.pageTitle}>My Portfolio</h1>
       <ProjectList projects={projects} />
-      <footer className={cls.footer}>
+      <div className={cls.footer}>
         <p className={cls.footerText}>Want to see more works?</p>
         <div className={cls.githubWrapper}>
           <a href="https://github.com/AlexandraKurylo" target="_blank" rel="noreferrer" className={cls.githubMainBtn}>
             Visit my GitHub Profile
           </a>
         </div>
-      </footer>
+      </div>
     </section>
   );
 };

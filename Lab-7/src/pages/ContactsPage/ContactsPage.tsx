@@ -16,7 +16,7 @@ interface IContacts {
 export const ContactsPage: FC = () => {
   const [contacts, setContacts] = useState<IContacts | null>(null);
 
-  const [getContacts, isLoading, error] = useFetch(async (url) => {
+  const [getContacts, isLoading, error] = useFetch(async (url: string) => {
     const response = await fetch(`${API_URL}/${url}`);
     const contacts = await response.json();
 

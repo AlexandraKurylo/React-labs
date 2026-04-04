@@ -10,8 +10,8 @@ export const ProjectPage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const [project, setProject] = useState<IProject | null>(null);
 
-  const [getProject, isLoading, error] = useFetch(async (path: string) => {
-    const response = await fetch(`${API_URL}/${path}`);
+  const [getProject, isLoading, error] = useFetch(async (url: string) => {
+    const response = await fetch(`${API_URL}/${url}`);
     const project = await response.json();
     setProject(project);
   });

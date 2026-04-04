@@ -14,7 +14,7 @@ export const MainLayout = () => {
           </main>
           <footer className={cls.footer}>
             Portfolio | {currentYear} <br />
-            by Oleksandra Kurylo
+            by Alexandra Kurylo
           </footer>
         </div>
       </div>

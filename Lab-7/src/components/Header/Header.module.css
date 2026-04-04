@@ -20,6 +20,27 @@
     }
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.logoIcon {
+    font-size: 1.8rem;
+    color: var(--green-color);
+}
+
+.logoText {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
+}
+
 .navLinksWrapper {
     display: flex;
     gap: 1.875rem;
@@ -32,8 +53,7 @@
 }
 
 .navLinksWrapper a.active,
-.navLinksWrapper a:hover
- {
+.navLinksWrapper a:hover {
     color: var(--blue-color);
     border-bottom: 1px solid var(--blue-color);
 }
@@ -41,7 +61,7 @@
 @media (max-width: 40.625em) {
     .header {
         padding: 0.625rem 0.9375rem;
-        flex-direction: column; 
+        flex-direction: column;
         height: auto;
         gap: 0.9375rem;
     }
