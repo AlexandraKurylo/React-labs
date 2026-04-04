@@ -12,8 +12,8 @@ export const ThemeSwitcher = () => {
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
 
-  const themeText = isDark ? "Light" : "Dark";
-  const ThemeIcon = isDark ? SunIcon : MoonIcon;
+  const themeText = isDark ? "Dark" : "Light";
+  const ThemeIcon = isDark ? MoonIcon : SunIcon;
 
   useEffect(() => {
     const theme = isDark ? "dark" : "light";
