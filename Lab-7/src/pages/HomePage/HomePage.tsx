@@ -1,7 +1,8 @@
 import { type FC, useEffect, useState } from "react";
 import cls from "./HomePage.module.css";
 import { Loader } from "../../components/Loader";
-import { delayFn } from "../../helpers/delayFn";
+import { API_URL } from "../../constants/global.constants";
+import { useFetch } from "../../hooks/useFetch";
 
 interface IProfile {
   firstName: string;
@@ -18,37 +19,23 @@ interface IEducation {
 export const HomePage: FC = () => {
   const [profile, setProfile] = useState<IProfile | null>(null);
   const [education, setEducation] = useState<IEducation[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+
+  const [fetchProfileData, isLoading, error] = useFetch(async () => {
+    const [profileRes, eduRes] = await Promise.all([fetch(`${API_URL}/profile`), fetch(`${API_URL}/education`)]);
+
+    if (!profileRes.ok || !eduRes.ok) {
+      throw new Error("Failed to fetch data from server");
+    }
+
+    const profileData = await profileRes.json();
+    const eduData = await eduRes.json();
+
+    setProfile(profileData);
+    setEducation(eduData);
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
-        await delayFn();
-        const [profileRes, eduRes] = await Promise.all([
-          fetch("http://localhost:8801/profile"),
-          fetch("http://localhost:8801/education"),
-        ]);
-
-        if (!profileRes.ok || !eduRes.ok) {
-          throw new Error("Failed to fetch data from server");
-        }
-
-        const profileData = await profileRes.json();
-        const eduData = await eduRes.json();
-
-        setProfile(profileData);
-        setEducation(eduData);
-      } catch (err: any) {
-        setError(err.message || "An unexpected error occurred");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
+    fetchProfileData();
   }, []);
 
   if (isLoading) return <Loader />;

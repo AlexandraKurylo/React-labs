@@ -2,41 +2,28 @@ import { type FC, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import cls from "./ProjectPage.module.css";
 import type { IProject } from "../../types/global.types";
+import { useFetch } from "../../hooks/useFetch";
+import { API_URL } from "../../constants/global.constants";
+import { Loader } from "../../components/Loader";
 
 export const ProjectPage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const [project, setProject] = useState<IProject | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+
+  const [getProject, isLoading, error] = useFetch(async (path: string) => {
+    const response = await fetch(`${API_URL}/${path}`);
+    const project = await response.json();
+    setProject(project);
+  });
 
   useEffect(() => {
-    const fetchProject = async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
-
-        const response = await fetch(`http://localhost:8801/projects/${id}`);
-
-        if (!response.ok) {
-          throw new Error("Project not found");
-        }
-
-        const data = await response.json();
-        setProject(data);
-      } catch (err: any) {
-        setError(err.message || "Something went wrong");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
     if (id) {
-      fetchProject();
+      getProject(`projects/${id}`);
     }
-  }, [id]);
+  }, []);
 
   if (isLoading) {
-    return <div className={cls.loader}>Loading project...</div>;
+    return <Loader />;
   }
 
   if (error) {

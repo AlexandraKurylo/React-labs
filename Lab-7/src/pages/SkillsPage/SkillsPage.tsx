@@ -1,7 +1,8 @@
 import { type FC, useEffect, useState } from "react";
 import cls from "./SkillsPage.module.css";
 import { Loader } from "../../components/Loader";
-import { delayFn } from "../../helpers/delayFn";
+import { useFetch } from "../../hooks/useFetch";
+import { API_URL } from "../../constants/global.constants";
 
 interface ISkill {
   id: number;
@@ -12,25 +13,17 @@ interface ISkill {
 
 export const SkillsPage: FC = () => {
   const [skills, setSkills] = useState<ISkill[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+
+  const [fetchSkills, isLoading, error] = useFetch(async (url) => {
+    const response = await fetch(`${API_URL}/${url}`);
+    const skills = await response.json();
+
+    setSkills(skills);
+    return skills;
+  });
 
   useEffect(() => {
-    const fetchSkills = async () => {
-      try {
-        setIsLoading(true);
-        await delayFn();
-        const res = await fetch("http://localhost:8801/skills");
-        if (!res.ok) throw new Error("Could not fetch skills data");
-        const data = await res.json();
-        setSkills(data);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchSkills();
+    fetchSkills("skills");
   }, []);
 
   if (isLoading) return <Loader />;

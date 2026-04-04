@@ -3,6 +3,8 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import cls from "./ContactsPage.module.css";
 import { delayFn } from "../../helpers/delayFn";
 import { Loader } from "../../components/Loader";
+import { useFetch } from "../../hooks/useFetch";
+import { API_URL } from "../../constants/global.constants";
 
 interface IContacts {
   phone: string;
@@ -13,25 +15,17 @@ interface IContacts {
 
 export const ContactsPage: FC = () => {
   const [contacts, setContacts] = useState<IContacts | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+
+  const [getContacts, isLoading, error] = useFetch(async (url) => {
+    const response = await fetch(`${API_URL}/${url}`);
+    const contacts = await response.json();
+
+    setContacts(contacts);
+    return contacts;
+  });
 
   useEffect(() => {
-    const fetchContacts = async () => {
-      try {
-        setIsLoading(true);
-        await delayFn();
-        const res = await fetch("http://localhost:8801/contacts");
-        if (!res.ok) throw new Error("Failed to load contacts");
-        const data = await res.json();
-        setContacts(data);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchContacts();
+    getContacts("contacts");
   }, []);
 
   if (isLoading) return <Loader />;

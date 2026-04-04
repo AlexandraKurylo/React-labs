@@ -3,32 +3,22 @@ import { ProjectList } from "../../components/ProjectList"; // Твій інте
 import cls from "./PortfolioPage.module.css";
 import type { IProject } from "../../types/global.types";
 import { Loader } from "../../components/Loader";
-import { delayFn } from "../../helpers/delayFn";
+import { useFetch } from "../../hooks/useFetch";
+import { API_URL } from "../../constants/global.constants";
 
 export const PortfolioPage: FC = () => {
   const [projects, setProjects] = useState<IProject[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+
+  const [fetchProjects, isLoading, error] = useFetch(async (url) => {
+    const response = await fetch(`${API_URL}/${url}`);
+    const projects = await response.json();
+
+    setProjects(projects);
+    return projects;
+  });
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        setIsLoading(true);
-        await delayFn();
-        const response = await fetch("http://localhost:8801/projects");
-        if (!response.ok) {
-          throw new Error("Failed to load projects. Please try again later.");
-        }
-        const data = await response.json();
-        setProjects(data);
-      } catch (err: any) {
-        setError(err.message || "An unexpected error occurred");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchProjects();
+    fetchProjects("projects");
   }, []);
 
   if (isLoading) {
