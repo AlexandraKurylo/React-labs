@@ -27,13 +27,9 @@
   border-radius: 12px;
   transition: all 0.3s ease;
   border: 1px solid transparent;
-
-  /* --- СЕКЦІЯ АНІМАЦІЇ --- */
   opacity: 0;
-  transform: translateY(20px); /* Картка плавно піднімається знизу */
+  transform: translateY(20px);
   animation: slideInFade 0.5s ease forwards;
-  
-  /* Використовуємо змінну --index, яку ми передаємо з React */
   animation-delay: calc(var(--index) * 0.1s);
 }
 
@@ -43,7 +39,6 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Ключові кадри для появи */
 @keyframes slideInFade {
   to {
     opacity: 1;

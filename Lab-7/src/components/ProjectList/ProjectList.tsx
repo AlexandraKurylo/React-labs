@@ -16,8 +16,8 @@ interface ProjectListProps {
 export const ProjectList: FC<ProjectListProps> = ({ projects }) => {
   return (
     <div className={cls.grid}>
-      {projects.map((project) => (
-        <ProjectCard key={project.id} {...project} />
+      {projects.map((project, index) => (
+        <ProjectCard key={project.id} {...project} index={index} />
       ))}
     </div>
   );

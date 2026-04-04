@@ -1,6 +1,8 @@
 import { type FC, useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import cls from "./ContactsPage.module.css";
+import { delayFn } from "../../helpers/delayFn";
+import { Loader } from "../../components/Loader";
 
 interface IContacts {
   phone: string;
@@ -18,6 +20,7 @@ export const ContactsPage: FC = () => {
     const fetchContacts = async () => {
       try {
         setIsLoading(true);
+        await delayFn();
         const res = await fetch("http://localhost:8801/contacts");
         if (!res.ok) throw new Error("Failed to load contacts");
         const data = await res.json();
@@ -31,11 +34,10 @@ export const ContactsPage: FC = () => {
     fetchContacts();
   }, []);
 
-  if (isLoading) return <div className={cls.center}>Loading...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div className={cls.center}>{error}</div>;
   if (!contacts) return null;
 
-  // Ті ж самі дані, просто в масиві для ітерації та анімації
   const items = [
     { id: 1, icon: <FaPhoneAlt />, label: "Phone", val: contacts.phone, href: `tel:${contacts.phone}` },
     { id: 2, icon: <FaEnvelope />, label: "Email", val: contacts.email, href: `mailto:${contacts.email}` },
@@ -44,22 +46,23 @@ export const ContactsPage: FC = () => {
   ];
 
   return (
-    <div className={cls.container}>
-      <h1 className={cls.title}>Contact Me</h1>
-
-      <div className={cls.contactList}>
-        {items.map((item, idx) => (
-          <div key={item.id} className={cls.contactItem} style={{ "--index": idx } as React.CSSProperties}>
-            <div className={cls.iconBox}>{item.icon}</div>
-            <div className={cls.info}>
-              <span className={cls.label}>{item.label}:</span>
-              <a href={item.href} target="_blank" rel="noreferrer" className={cls.link}>
-                {item.val}
-              </a>
+    <>
+      <div className={cls.container}>
+        <h1 className={cls.title}>Contact Me</h1>
+        <div className={cls.contactList}>
+          {items.map((item, idx) => (
+            <div key={item.id} className={cls.contactItem} style={{ "--index": idx } as React.CSSProperties}>
+              <div className={cls.iconBox}>{item.icon}</div>
+              <div className={cls.info}>
+                <span className={cls.label}>{item.label}:</span>
+                <a href={item.href} target="_blank" rel="noreferrer" className={cls.link}>
+                  {item.val}
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };

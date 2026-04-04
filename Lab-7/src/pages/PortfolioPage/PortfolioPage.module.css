@@ -12,16 +12,8 @@
   font-weight: 900;
   color: var(--text-color);
   margin-bottom: 40px;
-  position: relative;
-}
-
-.pageTitle::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: var(--green-color);
-  margin-top: 10px;
+  border-bottom: 2px solid var(--green-color); 
+  align-self: flex-start;
 }
 
 .projectsSection {
@@ -107,15 +99,6 @@
   0% { opacity: 0.6; }
   50% { opacity: 1; }
   100% { opacity: 0.6; }
-}
-
-.projectsSection {
-  animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 @media (max-width: 768px) {

@@ -13,7 +13,7 @@ export const MainLayout = () => {
             <Outlet />
           </main>
           <footer className={cls.footer}>
-            React FAQ | {currentYear} <br />
+            Portfolio | {currentYear} <br />
             by Oleksandra Kurylo
           </footer>
         </div>

@@ -1,5 +1,7 @@
 import { type FC, useEffect, useState } from "react";
 import cls from "./SkillsPage.module.css";
+import { Loader } from "../../components/Loader";
+import { delayFn } from "../../helpers/delayFn";
 
 interface ISkill {
   id: number;
@@ -17,6 +19,7 @@ export const SkillsPage: FC = () => {
     const fetchSkills = async () => {
       try {
         setIsLoading(true);
+        await delayFn();
         const res = await fetch("http://localhost:8801/skills");
         if (!res.ok) throw new Error("Could not fetch skills data");
         const data = await res.json();
@@ -30,7 +33,7 @@ export const SkillsPage: FC = () => {
     fetchSkills();
   }, []);
 
-  if (isLoading) return <div className={cls.center}>Loading skills...</div>;
+  if (isLoading) return <Loader />;
   if (error)
     return (
       <div className={cls.center} style={{ color: "red" }}>

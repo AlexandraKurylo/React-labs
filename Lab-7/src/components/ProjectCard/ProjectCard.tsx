@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { FC, CSSProperties } from "react";
 import { ButtonLink } from "../ButtonLink";
 import cls from "./ProjectCard.module.css";
 
@@ -7,13 +7,14 @@ interface ProjectCardProps {
   title: string;
   previewUrl: string;
   stack: string[];
+  index: number;
 }
 
-export const ProjectCard: FC<ProjectCardProps> = ({ id, title, previewUrl, stack }) => {
+export const ProjectCard: FC<ProjectCardProps> = ({ id, title, previewUrl, stack, index }) => {
   const imagePath = new URL(`../../assets/${previewUrl}`, import.meta.url).href;
 
   return (
-    <article className={cls.card}>
+    <article className={cls.card} style={{ "--index": index } as CSSProperties}>
       <picture className={cls.imageWrapper}>
         <img src={imagePath} alt={title} className={cls.image} />
       </picture>

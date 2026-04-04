@@ -2,6 +2,8 @@ import { type FC, useEffect, useState } from "react";
 import { ProjectList } from "../../components/ProjectList"; // Твій інтерфейс
 import cls from "./PortfolioPage.module.css";
 import type { IProject } from "../../types/global.types";
+import { Loader } from "../../components/Loader";
+import { delayFn } from "../../helpers/delayFn";
 
 export const PortfolioPage: FC = () => {
   const [projects, setProjects] = useState<IProject[]>([]);
@@ -12,14 +14,11 @@ export const PortfolioPage: FC = () => {
     const fetchProjects = async () => {
       try {
         setIsLoading(true);
-        setError(null);
-
+        await delayFn();
         const response = await fetch("http://localhost:8801/projects");
-
         if (!response.ok) {
           throw new Error("Failed to load projects. Please try again later.");
         }
-
         const data = await response.json();
         setProjects(data);
       } catch (err: any) {
@@ -32,24 +31,26 @@ export const PortfolioPage: FC = () => {
     fetchProjects();
   }, []);
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <div className={cls.error}>{error}</div>;
+  }
+
+  if (projects.length === 0) {
+    return (
+      <div className={cls.projectsSection}>
+        <p className={cls.noData}>No projects found at the moment.</p>
+      </div>
+    );
+  }
+
   return (
     <section className={cls.container}>
       <h1 className={cls.pageTitle}>My Portfolio</h1>
-
-      {isLoading ? (
-        <div className={cls.loader}>Loading projects...</div>
-      ) : error ? (
-        <div className={cls.error}>{error}</div>
-      ) : (
-        <div className={cls.projectsSection}>
-          {projects.length > 0 ? (
-            <ProjectList projects={projects} />
-          ) : (
-            <p className={cls.noData}>No projects found at the moment.</p>
-          )}
-        </div>
-      )}
-
+      <ProjectList projects={projects} />
       <footer className={cls.footer}>
         <p className={cls.footerText}>Want to see more works?</p>
         <div className={cls.githubWrapper}>

@@ -1,5 +1,7 @@
 import { type FC, useEffect, useState } from "react";
 import cls from "./HomePage.module.css";
+import { Loader } from "../../components/Loader";
+import { delayFn } from "../../helpers/delayFn";
 
 interface IProfile {
   firstName: string;
@@ -24,7 +26,7 @@ export const HomePage: FC = () => {
       try {
         setIsLoading(true);
         setError(null);
-
+        await delayFn();
         const [profileRes, eduRes] = await Promise.all([
           fetch("http://localhost:8801/profile"),
           fetch("http://localhost:8801/education"),
@@ -49,7 +51,7 @@ export const HomePage: FC = () => {
     fetchData();
   }, []);
 
-  if (isLoading) return <div className={cls.loader}>Loading profile...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div className={cls.error}>{error}</div>;
   if (!profile) return null;
 
