@@ -1,12 +1,12 @@
 .container {
-  max-width: 650px;
+  max-width: 40.625rem;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 3.75rem 1.25rem;
 }
 
 .title {
   font-size: 2.5rem;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   color: var(--text-color);
   border-bottom: 3px solid var(--green-color);
   display: inline-block;
@@ -15,16 +15,16 @@
 .contactList {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .contactItem {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
   background-color: var(--card-bg-color);
-  padding: 20px;
-  border-radius: 12px;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
   transition: all 0.3s ease;
   border: 1px solid transparent;
   text-decoration: none;
@@ -97,5 +97,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 400px;
+  min-height: 25rem;
 }

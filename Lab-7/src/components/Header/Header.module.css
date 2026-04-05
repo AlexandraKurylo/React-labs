@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 3.125rem;
-    box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .2);
 
     p {
         text-transform: capitalize;
@@ -23,7 +23,7 @@
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     text-decoration: none;
     color: var(--text-color);
     transition: all 0.3s ease;
@@ -38,7 +38,7 @@
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--text-color);
-    letter-spacing: -0.5px;
+    letter-spacing: -0.0313rem;
 }
 
 .navLinksWrapper {
@@ -60,7 +60,7 @@
 
 @media (max-width: 40.625em) {
     .header {
-        padding: 0.625rem 0.9375rem;
+        padding: 0.625rem 0.95rem;
         flex-direction: column;
         height: auto;
         gap: 0.9375rem;

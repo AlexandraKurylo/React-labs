@@ -10,8 +10,8 @@
 
 .loader {
     position: relative;
-    width:  48px;
-    height: 48px;
+    width:  3rem;
+    height: 3rem;
     background: var(--green-color);
     transform: rotateX(65deg) rotate(45deg);
     transform: perspective(200px) rotateX(65deg) rotate(45deg); 

@@ -1,7 +1,7 @@
 .container {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 3.75rem 1.25rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -11,7 +11,7 @@
   font-size: 2.8rem;
   font-weight: 900;
   color: var(--text-color);
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   border-bottom: 3px solid var(--green-color); 
   align-self: flex-start;
 }
@@ -22,13 +22,13 @@
 }
 
 .footer {
-  padding: 40px 0;
+  padding: 2.5rem 0;
   border-top: 1px solid var(--gray-300);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .footerText {
@@ -39,17 +39,17 @@
 
 .githubWrapper {
   width: 100%;
-  max-width: 400px;
+  max-width: 25rem;
 }
 
 .githubMainBtn {
   display: block;
   width: 100%;
-  padding: 18px 30px;
+  padding: 1.125rem 1.875rem;
   background-color: var(--btn-bg-color); 
   color: var(--btn-text-color);
   text-decoration: none;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   font-weight: 800;
   font-size: 1.2rem;
   transition: transform 0.2s ease, filter 0.2s ease;
@@ -69,7 +69,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 300px;
+  min-height: 18.75rem;
   font-size: 1.5rem;
   color: var(--green-color);
   font-weight: 700;
@@ -78,12 +78,12 @@
 
 .error {
   text-align: center;
-  padding: 20px;
+  padding: 1.25rem;
   background-color: rgba(255, 77, 77, 0.1);
   color: #ff4d4d;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   border: 1px solid #ff4d4d;
-  margin: 40px 0;
+  margin: 2.5rem 0;
   font-weight: 600;
 }
 
@@ -91,7 +91,7 @@
   text-align: center;
   color: var(--gray-100);
   font-size: 1.2rem;
-  margin-top: 50px;
+  margin-top: 3.125rem;
 }
 
 @keyframes pulse {
@@ -103,10 +103,6 @@
 @media (max-width: 768px) {
   .pageTitle {
     font-size: 2.2rem;
-  }
-  
-  .footer {
-    margin-top: 40px;
   }
 }
 

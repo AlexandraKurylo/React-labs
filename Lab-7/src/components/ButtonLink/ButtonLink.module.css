@@ -2,11 +2,11 @@
   margin-top: auto;
   display: block;
   width: 100%;
-  padding: 14px 20px;
+  padding: 0.875rem 1.25rem;
   background-color: var(--btn-bg-color);
   color: var(--btn-text-color);
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   font-weight: 700;
   font-size: 1.1rem;
   text-align: center;
