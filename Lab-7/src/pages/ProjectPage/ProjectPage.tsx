@@ -5,6 +5,7 @@ import type { IProject } from "../../types/global.types";
 import { useFetch } from "../../hooks/useFetch";
 import { API_URL } from "../../constants/global.constants";
 import { Loader } from "../../components/Loader";
+import { ProjectDetails } from "../../components/ProjectDetails";
 
 export const ProjectPage: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -12,8 +13,10 @@ export const ProjectPage: FC = () => {
 
   const [getProject, isLoading, error] = useFetch(async (url: string) => {
     const response = await fetch(`${API_URL}/${url}`);
+    if (!response.ok) throw new Error("Project not found");
     const project = await response.json();
     setProject(project);
+    return project;
   });
 
   useEffect(() => {
@@ -22,9 +25,7 @@ export const ProjectPage: FC = () => {
     }
   }, []);
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  if (isLoading) return <Loader />;
 
   if (error) {
     return (
@@ -39,48 +40,12 @@ export const ProjectPage: FC = () => {
 
   if (!project) return null;
 
-  const imagePath = new URL(`../../assets/${project.previewUrl}`, import.meta.url).href;
-
   return (
     <div className={cls.container}>
       <Link to="/portfolio" className={cls.backLink}>
         ← Back to Portfolio
       </Link>
-
-      <article className={cls.content}>
-        <h1 className={cls.title}>{project.title}</h1>
-
-        <div className={cls.imageWrapper}>
-          <img src={imagePath} alt={project.title} className={cls.mainImage} />
-        </div>
-
-        <div className={cls.details}>
-          <section>
-            <h3 className={cls.subtitle}>About Project</h3>
-            <p className={cls.description}>{project.description}</p>
-          </section>
-
-          <section>
-            <h3 className={cls.subtitle}>Technologies</h3>
-            <div className={cls.tags}>
-              {project.stack.map((tech) => (
-                <span key={tech} className={cls.tag}>
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </section>
-
-          <div className={cls.actions}>
-            <a href={project.liveDemoUrl} target="_blank" rel="noreferrer" className={cls.demoBtn}>
-              Live Demo 🚀
-            </a>
-            <a href={project.githubUrl} target="_blank" rel="noreferrer" className={cls.githubBtn}>
-              GitHub Repo
-            </a>
-          </div>
-        </div>
-      </article>
+      <ProjectDetails project={project} />
     </div>
   );
 };

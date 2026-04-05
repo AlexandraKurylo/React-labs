@@ -27,6 +27,9 @@
   border-radius: 12px;
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
   opacity: 0;
   transform: translateY(20px);
   animation: slideInFade 0.5s ease forwards;
@@ -37,6 +40,18 @@
   transform: translateX(10px);
   border-color: var(--green-color);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: rgba(var(--green-rgb), 0.05);
+}
+
+.contactItem:hover .valText {
+  color: var(--green-color);
+}
+
+.valText {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 @keyframes slideInFade {

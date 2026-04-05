@@ -40,23 +40,26 @@ export const ContactsPage: FC = () => {
   ];
 
   return (
-    <>
-      <div className={cls.container}>
-        <h1 className={cls.title}>Contact Me</h1>
-        <div className={cls.contactList}>
-          {items.map((item, idx) => (
-            <div key={item.id} className={cls.contactItem} style={{ "--index": idx } as React.CSSProperties}>
-              <div className={cls.iconBox}>{item.icon}</div>
-              <div className={cls.info}>
-                <span className={cls.label}>{item.label}:</span>
-                <a href={item.href} target="_blank" rel="noreferrer" className={cls.link}>
-                  {item.val}
-                </a>
-              </div>
+    <div className={cls.container}>
+      <h1 className={cls.title}>Contact Me</h1>
+      <div className={cls.contactList}>
+        {items.map((item, idx) => (
+          <a
+            key={item.id}
+            href={item.href}
+            target="_blank"
+            rel="noreferrer"
+            className={cls.contactItem}
+            style={{ "--index": idx } as React.CSSProperties}
+          >
+            <div className={cls.iconBox}>{item.icon}</div>
+            <div className={cls.info}>
+              <span className={cls.label}>{item.label}:</span>
+              <span className={cls.valText}>{item.val}</span>
             </div>
-          ))}
-        </div>
+          </a>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
