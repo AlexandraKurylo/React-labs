@@ -4,6 +4,7 @@ import { HomePage } from "./pages/HomePage";
 import { UserProfileFormPage } from "./pages/UserProfileFormPage";
 import { RegisterFormPage } from "./pages/RegisterFormPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { ValidationResultPage } from "./pages/ValidationResultPage";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <RegisterFormPage />,
+      },
+      {
+        path: "result",
+        element: <ValidationResultPage />,
       },
       {
         path: "*",

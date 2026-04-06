@@ -4,8 +4,12 @@ import styles from "./RegisterForm.module.css";
 import type { FC } from "react";
 import { registerSchema, type RegisterFormData } from "./registerSchema";
 import { Button } from "../Button";
+import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../constants/global.constants";
 
 export const RegisterForm: FC = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -16,15 +20,27 @@ export const RegisterForm: FC = () => {
     mode: "onChange",
   });
 
-  const onSubmit: SubmitHandler<RegisterFormData> = (data) => {
+  const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
     const formattedData = {
       ...data,
       username: data.username.trim().toLowerCase(),
       email: data.email.trim().toLowerCase(),
     };
 
-    console.log("Form Data Prepared:", formattedData);
-    alert("Registration successful!");
+    try {
+      const response = await fetch(`${API_URL}/users`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formattedData),
+      });
+
+      if (response.ok) {
+        navigate("/result");
+        alert("Data saved!");
+      }
+    } catch (err) {
+      console.error("Error while saving:", err);
+    }
   };
 
   return (

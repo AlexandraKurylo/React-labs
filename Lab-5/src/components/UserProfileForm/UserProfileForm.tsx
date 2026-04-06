@@ -1,11 +1,15 @@
-import { useForm } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import styles from "./UserProfileForm.module.css";
 import type { FC } from "react";
 import { Button } from "../Button";
 import { profileSchema, type ProfileFormData } from "./profileSchema";
+import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../constants/global.constants";
 
 export const UserProfileForm: FC = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -16,15 +20,31 @@ export const UserProfileForm: FC = () => {
     reValidateMode: "onChange",
   });
 
-  const onSubmit = (data: ProfileFormData) => {
+  const onSubmit: SubmitHandler<ProfileFormData> = async (data) => {
     const formattedData = {
       ...data,
       nickname: data.nickname.toLowerCase().trim(),
       website: /^https?:\/\//i.test(data.website) ? data.website : `https://${data.website}`,
     };
 
-    console.log("Form submitted with cleaned data:", formattedData);
-    alert("Profile saved successfully!");
+    try {
+      const response = await fetch(`${API_URL}/profiles`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formattedData),
+      });
+
+      if (response.ok) {
+        navigate("/result");
+      } else {
+        throw new Error("Failed to save profile");
+      }
+    } catch (err) {
+      console.error("Error saving profile:", err);
+      alert("An error occurred while saving the profile.");
+    }
   };
 
   return (

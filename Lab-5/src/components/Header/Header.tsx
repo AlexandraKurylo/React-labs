@@ -16,6 +16,7 @@ export const Header = () => {
       <div className={cls.btnWrapper}>
         <Button to="/profile">Personal task</Button>
         <Button to="/register">Task 1</Button>
+        <Button to="/result">Validation result</Button>
       </div>
       <ThemeSwitcher />
     </header>
