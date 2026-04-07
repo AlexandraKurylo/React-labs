@@ -1,14 +1,16 @@
 ## Advanced Validation with React Hook Form & Zod
 
-### 📸 Project Screenshots
+### 🏞️ Project Previews
 
-|              Home Page              |            Registration            |              Profile Form              |        Database Dashboard         |
-| :---------------------------------: | :--------------------------------: | :------------------------------------: | :-------------------------------: |
-| ![Home](./src/assets/preview-1.png) | ![Reg](./src/assets/preview-5.png) | ![Profile](./src/assets/preview-6.png) | ![DB](./src/assets/preview-7.png) |
-
-|       Loading tasks loader        |                Loader                 |       Home Page (dark theme)        |
-| :-------------------------------: | :-----------------------------------: | :---------------------------------: |
-| ![Loader](./src/assets/preview-3.png) | ![Loader](./src/assets/preview-4.png) | ![Home](./src/assets/preview-2.png) |
+<p align="center">
+   <img src="./src/assets/preview-1.png" width="48%" alt="Home Page" />
+   <img src="./src/assets/preview-2.png" width="48%" alt="Home Page Dark" />
+   <img src="./src/assets/preview-5.png" width="32%" alt="Registration" />
+   <img src="./src/assets/preview-6.png" width="32%" alt="Profile Form" />
+   <img src="./src/assets/preview-7.png" width="32%" alt="Database Dashboard" />
+   <img src="./src/assets/preview-3.png" width="48%" alt="Loading Text Loader" />
+   <img src="./src/assets/preview-4.png" width="48%" alt="Main Loader" />
+</p>
 
 <!-- 🔗 [Live Demo](https://advanced-validation.vercel.app/) -->
 
