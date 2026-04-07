@@ -4,6 +4,8 @@ import cls from "./ValidationResultPage.module.css";
 import type { RegisterFormData } from "../../components/RegisterForm/registerSchema";
 import type { ProfileFormData } from "../../components/UserProfileForm/profileSchema";
 import { API_URL } from "../../constants/global.constants";
+import { useFetch } from "../../hooks/useFetch";
+import { Loader } from "../../components/Loader";
 
 type UserResponse = RegisterFormData & { id: string | number };
 type ProfileResponse = ProfileFormData & { id: string | number };
@@ -11,32 +13,22 @@ type ProfileResponse = ProfileFormData & { id: string | number };
 export const ValidationResultPage: FC = () => {
   const [users, setUsers] = useState<UserResponse[]>([]);
   const [profiles, setProfiles] = useState<ProfileResponse[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+
+  const [fetchData, isLoading, error] = useFetch(async () => {
+    const [usersRes, profilesRes] = await Promise.all([fetch(`${API_URL}/users`), fetch(`${API_URL}/profiles`)]);
+
+    if (!usersRes.ok || !profilesRes.ok) {
+      throw new Error("Failed to load data from the server.");
+    }
+
+    const usersData: UserResponse[] = await usersRes.json();
+    const profilesData: ProfileResponse[] = await profilesRes.json();
+
+    setUsers(usersData);
+    setProfiles(profilesData);
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const [usersRes, profilesRes] = await Promise.all([fetch(`${API_URL}/users`), fetch(`${API_URL}/profiles`)]);
-
-        if (!usersRes.ok || !profilesRes.ok) {
-          throw new Error("Failed to load data from the server.");
-        }
-
-        const usersData: UserResponse[] = await usersRes.json();
-        const profilesData: ProfileResponse[] = await profilesRes.json();
-
-        setUsers(usersData);
-        setProfiles(profilesData);
-      } catch (err) {
-        console.error("Fetch error:", err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
     fetchData();
   }, []);
 
@@ -59,11 +51,11 @@ export const ValidationResultPage: FC = () => {
       }
     } catch (err) {
       console.error("Delete error:", err);
-      alert("The record could not be deleted. The server may be unavailable.");
+      alert("The record could not be deleted.");
     }
   };
 
-  if (isLoading) return <div className={cls.loader}>Loading results...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div className={cls.errorBox}>{error}</div>;
 
   return (

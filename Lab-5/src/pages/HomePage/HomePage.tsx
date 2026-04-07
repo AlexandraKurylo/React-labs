@@ -1,7 +1,12 @@
+import { MainLoader } from "../../components/Loader";
 import { TaskCard } from "../../components/TaskCard";
+import { useDelayedLoader } from "../../hooks/useDelayedLoader";
 import cls from "./HomePage.module.css";
 
 export const HomePage = () => {
+  const isLoading = useDelayedLoader(2000);
+  if (isLoading) return <MainLoader />;
+
   return (
     <div className={cls.container}>
       <h1 className={cls.pageTitle}>Choose a task</h1>
