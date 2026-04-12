@@ -22,33 +22,28 @@
   "skills": [
     {
       "id": 1,
-      "category": "Frontend Technologies",
-      "items": ["HTML5", "CSS3", "SCSS", "JavaScript (ES6+)", "TypeScript (100% Type Safety focus)"],
-      "icon": "💻"
+      "category": "Core Technologies",
+      "items": ["HTML5", "CSS3", "SCSS", "JavaScript (ES6+)", "TypeScript"]
     },
     {
       "id": 2,
       "category": "Frameworks & Libraries",
-      "items": ["React (Core)", "Context API", "React Router (createBrowserRouter approach)", "React Hook Form (for strictly typed forms)", "Redux Toolkit"],
-      "icon": "⚛️"
+      "items": ["React.js", "Redux Toolkit", "React Router", "React Hook Form + Zod"]
     },
     {
       "id": 3,
-      "category": "State & Theming",
-      "items": ["Custom Hooks development", "Global Auth & Theme Context"],
-      "icon": "🎨"
+      "category": "Architecture & State",
+      "items": ["Feature-Driven Design (FSD)", "Context API", "Custom Hooks development"]
     },
     {
       "id": 4,
       "category": "Markup & Styling",
-      "items": ["CSS Modules", "Tailwind CSS (utility-first utility)"],
-      "icon": "✒️"
+      "items": ["CSS Modules", "Tailwind CSS (utility-first utility)"]
     },
     {
       "id": 5,
       "category": "Tools & Platforms",
-      "items": ["Git", "GitHub", "Vite", "Modular Project Architecture (Feature-driven design)"],
-      "icon": "🛠️"
+      "items": ["Git", "GitHub", "Vite"]
     }
   ], 
   "contacts": {
