@@ -19,30 +19,6 @@
       "liveDemoUrl": "https://alexandrakurylo.github.io/furniture/"
     }
   ],
-  "profile": {
-    "firstName": "Alexandra",
-    "lastName": "Kurylo",
-    "role": "Frontend Developer/WebUI Developer\nStudent of Computer Science",
-    "about": "I am deeply committed to professional growth and am always looking for new challenges to improve my skills. I am goal-oriented, persistent, and ready to contribute to a team while achieving new milestones in my career."
-  },
-  "education": [
-    {
-      "id": 1,
-      "text": "State University of Intellectual Tecnologies and Telecommunications:\n Bachelor's degree, Computer Science (2024-2028)"
-    },
-    {
-      "id": 2,
-      "text": "Front end/WebUI course (HTML, CSS, JS)\nEducational Platform 'Freelancer Life Style'"
-    },
-    {
-      "id": 3,
-      "text": "JavaScript + TypeScript course\nEducational Platform 'Freelancer Life Style'"
-    },
-    {
-      "id": 4,
-      "text": "Udemy courses (JavaScript, React, Tailwind, TypeScript)."
-    }
-  ],
   "skills": [
     {
       "id": 1,
