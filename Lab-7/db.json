@@ -38,7 +38,7 @@
     {
       "id": 4,
       "category": "Markup & Styling",
-      "items": ["CSS Modules", "Tailwind CSS (utility-first utility)"]
+      "items": ["CSS Modules", "Tailwind"]
     },
     {
       "id": 5,
