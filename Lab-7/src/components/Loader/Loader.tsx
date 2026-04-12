@@ -7,3 +7,11 @@ export const Loader = () => {
     </div>
   );
 };
+
+export const MainLoader = () => {
+  return (
+    <div className={cls.backdrop}>
+      <span className={cls.mainLoader}></span>
+    </div>
+  );
+};

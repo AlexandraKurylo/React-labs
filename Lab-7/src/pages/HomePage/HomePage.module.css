@@ -1,83 +1,153 @@
 .container {
-    max-width: 56.25rem;
+    max-width: 75rem;
     margin: 0 auto;
-    padding: 2.5rem 1.25rem;
-    animation: fadeIn 0.6s ease-in-out;
+    padding: 3.75rem 1.25rem;
+    animation: fadeIn 0.8s ease-out;
 }
 
-.hero {
-    margin-bottom: 3.75rem;
+.header {
+    margin-bottom: 3.5rem;
+    text-align: left;
+    border-bottom: 2px solid var(--green-color);
+    padding-bottom: 1.5rem;
 }
 
 .name {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    font-weight: 900;
-    margin-bottom: 0.625rem;
-    color: var(--text-color);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
 }
 
 .role {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--green-color);
-    margin-bottom: 1.5625rem;
-    line-height: 1.4;
-    white-space: pre-wrap;
+    margin-top: 0.5rem;
 }
 
-.about {
-    max-width: 43.75rem;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: var(--text-color);
-    opacity: 0.9;
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr 2.2fr;
+    gap: 4rem;
+    align-items: start;
 }
 
-.educationSection {
-    margin-top: 3.125rem;
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sideBlock {
+    background: var(--card-bg-color);;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--green-color);
+}
+
+.sideTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--green-color);
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.sideList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sideList li {
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+    opacity: 0.8;
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+.sideList li::before {
+    content: "▹"; 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--green-color);
+    font-size: 1rem;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.sideList li:has(strong)::before {
+    content: none;
+}
+.sideList li:has(strong) {
+    padding-left: 0;
+}
+
+.section {
+    margin-bottom: 4rem;
 }
 
 .sectionTitle {
-    font-size: 2rem;
-    margin-bottom: 1.875rem;
-    display: inline-block;
-    border-bottom: 3px solid var(--green-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
 }
 
-.eduList {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5625rem;
+.sectionTitle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 40px;
+    height: 3px;
+    background: var(--green-color);
+}
+
+.aboutContent {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    background: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 2px solid var(--green-color);
 }
 
 .eduItem {
-    white-space: pre-wrap;
-    padding-left: 1.25rem;
+    margin-bottom: 2rem;
     border-left: 2px solid var(--green-color);
-    font-size: 1.05rem;
-    line-height: 1.6;
+    padding-left: 1.5rem;
 }
 
-.loader,
-.error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 25rem;
-    font-weight: 700;
+.eduTitle {
+    font-size: 1.2rem;
+    color: var(--green-color);
 }
 
-.error {
-    color: #ff4d4d;
+
+@media (max-width: 992px) {
+    .mainGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        order: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        grid-template-columns: 1fr;
+    }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }

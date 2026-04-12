@@ -19,60 +19,31 @@
       "liveDemoUrl": "https://alexandrakurylo.github.io/furniture/"
     }
   ],
-  "profile": {
-    "firstName": "Alexandra",
-    "lastName": "Kurylo",
-    "role": "Frontend Developer/WebUI Developer\nStudent of Computer Science",
-    "about": "I am deeply committed to professional growth and am always looking for new challenges to improve my skills. I am goal-oriented, persistent, and ready to contribute to a team while achieving new milestones in my career."
-  },
-  "education": [
-    {
-      "id": 1,
-      "text": "State University of Intellectual Tecnologies and Telecommunications:\n Bachelor's degree, Computer Science (2024-2028)"
-    },
-    {
-      "id": 2,
-      "text": "Front end/WebUI course (HTML, CSS, JS)\nEducational Platform 'Freelancer Life Style'"
-    },
-    {
-      "id": 3,
-      "text": "JavaScript + TypeScript course\nEducational Platform 'Freelancer Life Style'"
-    },
-    {
-      "id": 4,
-      "text": "Udemy courses (JavaScript, React, Tailwind, TypeScript)."
-    }
-  ],
   "skills": [
     {
       "id": 1,
-      "category": "Frontend Technologies",
-      "items": ["HTML5", "CSS3", "SCSS", "JavaScript (ES6+)", "TypeScript (100% Type Safety focus)"],
-      "icon": "💻"
+      "category": "Core Technologies",
+      "items": ["HTML5", "CSS3", "SCSS", "JavaScript (ES6+)", "TypeScript"]
     },
     {
       "id": 2,
       "category": "Frameworks & Libraries",
-      "items": ["React (Core)", "Context API", "React Router (createBrowserRouter approach)", "React Hook Form (for strictly typed forms)", "Redux Toolkit"],
-      "icon": "⚛️"
+      "items": ["React.js", "Redux Toolkit", "React Router", "React Hook Form + Zod"]
     },
     {
       "id": 3,
-      "category": "State & Theming",
-      "items": ["Custom Hooks development", "Global Auth & Theme Context"],
-      "icon": "🎨"
+      "category": "Architecture & State",
+      "items": ["Feature-Driven Design (FSD)", "Context API", "Custom Hooks development"]
     },
     {
       "id": 4,
       "category": "Markup & Styling",
-      "items": ["CSS Modules", "Tailwind CSS (utility-first utility)"],
-      "icon": "✒️"
+      "items": ["CSS Modules", "Tailwind CSS (utility-first utility)"]
     },
     {
       "id": 5,
       "category": "Tools & Platforms",
-      "items": ["Git", "GitHub", "Vite", "Modular Project Architecture (Feature-driven design)"],
-      "icon": "🛠️"
+      "items": ["Git", "GitHub", "Vite"]
     }
   ], 
   "contacts": {

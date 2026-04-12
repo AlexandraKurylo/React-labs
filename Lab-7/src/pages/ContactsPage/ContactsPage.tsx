@@ -1,7 +1,6 @@
 import { type FC, useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import cls from "./ContactsPage.module.css";
-import { delayFn } from "../../helpers/delayFn";
 import { Loader } from "../../components/Loader";
 import { useFetch } from "../../hooks/useFetch";
 import { API_URL } from "../../constants/global.constants";
@@ -50,7 +49,7 @@ export const ContactsPage: FC = () => {
             target="_blank"
             rel="noreferrer"
             className={cls.contactItem}
-            style={{ "--index": idx } as React.CSSProperties}
+            style={{ "--i": idx } as React.CSSProperties}
           >
             <div className={cls.iconBox}>{item.icon}</div>
             <div className={cls.info}>
